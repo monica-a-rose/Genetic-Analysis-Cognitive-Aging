@@ -1,0 +1,58 @@
+# This script documents the gene-based analysis workflow using MAGMA.
+# It covers preparing the association study summary statistics and loading the final
+# MAGMA results for interpretation.
+
+library(tidyverse)
+
+# ===================================================================
+# STEP 1: PREPARE ASSOCIATION SUMMARY STATISTICS FOR MAGMA
+# ===================================================================
+
+# The primary PLINK association output needs to be formatted into a simple
+# two-column file for MAGMA: SNP ID and P-value.
+
+# Load the raw association results
+assoc_results <- read_table("association_results/speed_decline_PC20.assoc.linear", col_types = cols())
+
+# Select relevant columns and format for MAGMA
+magma_input <- assoc_results %>%
+  select(SNP, P) %>%
+  filter(!is.na(P)) # Remove any rows with missing p-values
+
+# Write the formatted file
+write_tsv(magma_input, "magma_input/speed_decline_sumstats.txt")
+
+print("Association summary statistics formatted for MAGMA.")
+
+# ===================================================================
+# STEP 2: RUN MAGMA (EXECUTED IN TERMINAL)
+# ===================================================================
+
+# MAGMA is a command-line tool. The following command was run in the terminal
+# from the directory containing the MAGMA executable and required annotation files.
+
+# ./magma \
+#   --bfile g1000_eur \
+#   --pval magma_input/speed_decline_sumstats.txt N=434 \
+#   --gene-annot dopamine_annotation.genes.annot \
+#   --out magma_results/dopamine_genes_speed_decline
+
+
+# ===================================================================
+# STEP 3: LOAD AND INTERPRET MAGMA RESULTS IN R
+# ===================================================================
+
+print("Loading MAGMA gene-based analysis results.")
+
+# The primary output is the .genes.out file, which contains the gene-level p-values.
+magma_results <- read_table("magma_results/dopamine_genes_speed_decline.genes.out", col_types = cols())
+
+# View the top results, sorted by p-value
+top_genes <- magma_results %>%
+  arrange(P)
+
+print("Top gene-based associations:")
+print(head(top_genes))
+
+# Based on the results from the dissertation, the top nominal signal was DRD2.
+# DRD2 gene-based p-value: 0.222 (not statistically significant)
