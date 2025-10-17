@@ -8,8 +8,6 @@ This repository contains the full dissertation, a draft manuscript for publicati
 
 ### ➡️ [**View the Full Dissertation (PDF)**](Dissertation_Monica_Rose.pdf)
 
-### ➡️ [**View the Journal Manuscript Draft (PDF)**](Plos_One_Journal_Manuscript.pdf)
-
 ---
 
 ## Project Overview
