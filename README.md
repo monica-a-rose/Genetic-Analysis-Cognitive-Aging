@@ -2,7 +2,7 @@
 
 > **MSc Dissertation Project - Distinction**
 
-This repository contains the full dissertation, a draft manuscript for publication, and all associated analysis code for my master's thesis.
+This repository contains the full dissertation, and all associated analysis code for my master's thesis.
 
 ---
 
