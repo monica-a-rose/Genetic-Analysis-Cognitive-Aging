@@ -41,4 +41,4 @@ The project involved a complete bioinformatics and statistical genetics workflow
 
 ## Data Availability
 
-The genetic and clinical data used in this study were obtained from a longitudinal research cohort at the University of Manchester. Due to participant confidentiality and the governing data sharing agreement, the raw data cannot be made publicly available.
+The genetic and clinical data used in this study were obtained from a longitudinal research cohort at the University of Manchester.
