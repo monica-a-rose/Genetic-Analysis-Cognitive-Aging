@@ -1,47 +1,44 @@
-# Genetic Analysis of Cognitive Aging (MSc Dissertation)
+# Genetic Analysis of Cognitive Aging (MSc Dissertation Project)
 
-> **MSc Dissertation Project - Distinction**
+> **MSc Dissertation | Awarded Distinction**
 
-This repository contains the full dissertation, and all associated analysis code for my master's thesis.
+This repository contains all associated analysis code for my master's thesis, a longitudinal candidate-gene study investigating the genetic underpinnings of cognitive decline in aging.
 
 ---
 
-### ➡️ [**View the Full Dissertation (PDF)**](Dissertation_Monica_Rose.pdf)
+### **Publication Status**
+
+> A manuscript based on the findings from this dissertation is currently in preparation for submission to a peer-reviewed academic journal.
 
 ---
 
 ## Project Overview
 
-This project is a longitudinal candidate-gene study that investigates the genetic underpinnings of cognitive decline in aging, focusing on the dopamine system. It addresses the gap between established neurobiological evidence of dopamine's role and the unresolved genetic basis.
+This project addresses the gap between the well-established role of the dopamine system in neurobiology and the unresolved genetic basis for its influence on cognitive aging.
 
-The analysis involved a multi-tiered approach—including single-variant, gene-based (MAGMA), and polygenic risk score analyses—on 957 variants across nine key dopamine genes in a cohort of 434 participants over 12 years.
+The analysis involved a multi-tiered approach—including single-variant, gene-based (MAGMA), and polygenic risk score analyses—on 957 variants across nine key dopamine genes. The study utilized a cohort of 434 participants from the University of Manchester Longitudinal Study of Cognition, with cognitive data spanning 12 years.
 
 ## Research Question
 
-Do dopaminergic genes modulate processing speed during cognitive aging?
+Do common dopaminergic gene variants modulate processing speed decline during cognitive aging?
 
 ## Key Findings
 
--   Despite robust methodology and adequate statistical power to detect moderate-to-large effects, the study found **no significant associations** between common dopaminergic variants and the rate of processing speed decline after multiple testing correction.
--   These null findings persisted across secondary cognitive domains and exploratory post-mortem analyses.
--   The results support a model of extreme polygenicity in cognitive aging, suggesting that individual common variants in this pathway have effects too small to be detected in candidate-gene studies of this size. The dissertation discusses the value of these null findings in refining biological models and guiding future research.
+-   Despite robust methodology and adequate statistical power to detect moderate-to-large effects, the study found **no significant associations** between common dopaminergic variants and the rate of processing speed decline after rigorous multiple testing correction.
+-   This null finding was consistent across secondary cognitive domains (fluid reasoning, memory) and exploratory post-mortem analyses, suggesting it is a robust feature of the data.
+-   The results strongly support a model of **extreme polygenicity** in cognitive aging, where individual common variants have effects too small to be detected in candidate-gene studies of this size. The dissertation discusses the scientific value of well-powered null findings in refining biological models and guiding future research.
 
 ## Technical Workflow & Technologies
 
-The project involved a complete bioinformatics and statistical workflow, with all scripts available in the `/code` folder.
+The project involved a complete bioinformatics and statistical genetics workflow. All scripts are available in the `/code` folder and can be viewed by clicking the links below.
 
-1.  **Covariate Data Preprocessing (`00_covariate_preprocessing.R`):** Raw clinical, demographic, and lifestyle data were cleaned, merged, recoded, and handled for missingness using MICE imputation in R.
-2.  **Genomic Quality Control & Merging (`01_plink_commands.sh`):** A full command-line pipeline in PLINK was used to perform QC on a per-gene basis before merging all nine candidate genes into a final, analysis-ready dataset.
-3.  **Gene-Based Association Analysis (`02_magma_analysis.R`):** PLINK association results were formatted and analyzed using MAGMA to test for cumulative gene-level effects.
-4.  **Post-Hoc Statistical Modeling (`03_statistical_modeling.R`):** Secondary analyses, such as modeling the effects of neuropathology markers, were performed in R.
+1.  **Covariate Data Preprocessing ([`00_covariate_preprocessing.R`](code/00_covariate_preprocessing.R)):** Cleaned, merged, and imputed clinical, demographic, and lifestyle data using MICE in R.
+2.  **Genomic Quality Control ([`01_plink_commands.sh`](code/01_plink_commands.sh)):** A command-line pipeline in **PLINK** was used to perform QC, filter variants, and merge gene data.
+3.  **Gene-Based Association ([`02_magma_analysis.R`](code/02_magma_analysis.R)):** Aggregated SNP-level statistics to test for cumulative gene-level effects using **MAGMA**.
+4.  **Statistical Modeling & Power Analysis ([`03_statistical_modeling.R`](code/03_statistical_modeling.R)):** Conducted post-hoc analyses, sensitivity tests, and statistical power calculations in R.
 
 **Key Technologies:** `PLINK`, `MAGMA`, `R (tidyverse, mice)`, `Shell Scripting`, `Statistical Genetics`, `Longitudinal Data Analysis`
 
 ## Data Availability
 
-The genetic and clinical data used in this study were obtained from the University of Manchester Longitudinal Study of Cognition in Normal Healthy Old Age. Due to participant confidentiality and the data sharing agreement, the raw data cannot be made publicly available in this repository.
-
-## Repository Structure
-
--   **/code/**: Contains all R and Shell scripts used for data processing and analysis, numbered in chronological order.
--   **/report/**: Contains the full dissertation PDF and the draft manuscript for journal submission.
+The genetic and clinical data used in this study were obtained from a longitudinal research cohort at the University of Manchester. Due to participant confidentiality and the governing data sharing agreement, the raw data cannot be made publicly available.
